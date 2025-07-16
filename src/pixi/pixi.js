@@ -7,7 +7,7 @@ const init = () => {
   });
   const container = new Container();
   app.stage.addChild(container);
-  return app.view;
+  return app;
 };
 
 export { init };
