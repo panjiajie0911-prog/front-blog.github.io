@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, cloneElement } from "react";
 import { config, Config } from "./config";
-import Style from "../../assets/style/index.module.scss";
+import * as Style from "../../assets/style/index.module.scss";
 
 export default function Index() {
   const [cards, setCards] = useState([]);
@@ -22,15 +22,17 @@ export default function Index() {
       return { left: `${gap * 100}%` };
     }
   };
+
   useEffect(() => {
     fetch();
   }, []);
+
   return (
     <>
       <ul className={Style.container}>
         {cards.map((item, index) => (
           <li key={item.id} style={dymicStyle(index)}>
-            {item.name}
+            {item.jsx ? cloneElement(item.jsx) : item.name}
           </li>
         ))}
       </ul>
