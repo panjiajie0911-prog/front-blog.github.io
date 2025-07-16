@@ -1,4 +1,13 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { init } from "../pixi/pixi";
 export default function Author() {
-  return <div>author1</div>;
+  const container = useRef();
+  const start = () => {
+    const view = init();
+    container.current.appendChild(view);
+  };
+  useEffect(() => {
+    start();
+  }, []);
+  return <div ref={container}></div>;
 }
