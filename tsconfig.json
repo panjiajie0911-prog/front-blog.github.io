@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["src/*"] // 如果你使用了路径别名
+      },
+      "typeRoots": [
+        "node_modules/@types",
+        "src/types" // 自定义类型目录
+      ]
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx", "src/global/global.d.ts"]
+  }

@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  line-height: 100vh;
+ 
+  li {
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    line-height: inherit; 
+    flex:1;
+    position: fixed;
+    transition-duration: 1s;
+    transition-property: left;
+  }
+}
+
+.btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  .btn {cursor: pointer;
+  }
+}

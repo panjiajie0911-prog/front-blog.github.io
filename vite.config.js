@@ -5,7 +5,13 @@ export default defineConfig({
     alias: {
       "@": "/src", // 配置路径别名
     },
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".scss"],
+  },
+  css: {
+    modules: {
+      localsConvention: "camelCaseOnly",
+      generateScopedName: "[local]_[hash:base64:5]"
+    }
   },
   plugins: [react()],
   root: "./src", // 源码目录

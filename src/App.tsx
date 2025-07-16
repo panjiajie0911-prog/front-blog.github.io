@@ -1,7 +1,6 @@
 import React from "react";
 import "./assets/style/common.scss";
+import Index from "./pages/index/index";
 export default function App() {
-    return (
-        <div>sss</div>
-    );
+    return <Index />
 }
