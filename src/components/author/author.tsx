@@ -39,6 +39,21 @@ export default function Author() {
         body.position.x - _domEl.getBoundingClientRect().width / 2 + "px";
     });
   };
+  const show = (icon: Icon) => {
+    const bodies = Composite.allBodies(matter.world);
+    const target = bodies.find((body) => body.name === `icon-${icon.name}`);
+    if (!target) {
+      return;
+    }
+    const _domEl = target._domEl;
+    if (!_domEl) {
+      return;
+    }
+    Body.applyForce(target, target.position, {
+      x: Math.random() * (Math.random() > 0.5 ? 1 : -1),
+      y: -0.8,
+    }); // 向上弹跳
+  };
   useEffect(() => {
     matter = new Matter();
     matter.update();
@@ -55,6 +70,9 @@ export default function Author() {
               id={`icon-${icon.name}`}
               className={`${Style.icon} ${Style[icon.svg]}`}
               style={{ left: `${50 + 1 * index}%` }}
+              onClick={() => {
+                show(icon);
+              }}
             ></li>
           );
         })}
