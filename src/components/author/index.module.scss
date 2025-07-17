@@ -14,6 +14,22 @@
       cursor: pointer;
       background-repeat: no-repeat;
       background-size: cover;
+      border-radius: 50%;
+      /* 使用 mask 控制显示区域（仅支持现代浏览器） */
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+    .gmail {
+      mask-image: url("../../assets/svg/gmail.svg");
+    }
+    .gitlab {
+      mask-image: url("../../assets/svg/gitlab.svg");
+    }
+    .phone {
+      mask-image: url("../../assets/svg/phone.svg");
+    }
+    .tencent {
+      mask-image: url("../../assets/svg/tencent.svg");
     }
   }
 }

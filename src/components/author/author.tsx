@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Matter from "../../matter/matter";
 import Style from "./index.module.scss";
 import { Composite, Body } from "matter-js";
+
 interface Icon {
   name: string;
   link?: string;
+  svg: string;
 }
 const icons: Icon[] = [
-  { name: "github", link: "https://github.com/" },
-  { name: "weibo", link: "" },
+  { name: "phone", link: "", svg: "phone" },
+  { name: "gitlab", link: "", svg: "gitlab" },
+  { name: "gmail", link: "", svg: "gmail" },
+  { name: "tencent", link: "", svg: "tencent" },
 ];
 export default function Author() {
   let matter: Matter;
@@ -49,7 +53,7 @@ export default function Author() {
             <li
               key={icon.name}
               id={`icon-${icon.name}`}
-              className={Style.icon}
+              className={`${Style.icon} ${Style[icon.svg]}`}
               style={{ left: `${50 + 1 * index}%` }}
             ></li>
           );
