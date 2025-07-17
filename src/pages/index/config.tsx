@@ -1,5 +1,5 @@
 import React from "react";
-import Author from "../../components/author";
+import Author from "../../components/author/author";
 
 export interface Config {
   name: string;
@@ -8,7 +8,7 @@ export interface Config {
 }
 
 export const config: Config[] = [
-  { name: "首页", id: 1, jsx: <Author /> },
   { name: "联系", id: 2, jsx: <Author /> },
-  { name: "文章", id: 5, jsx: <Author /> },
+  { name: "首页", id: 1 },
+  { name: "文章", id: 5 },
 ];
