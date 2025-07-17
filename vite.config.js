@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import md from "vite-plugin-markdown";
 export default defineConfig({
   resolve: {
     alias: {
@@ -10,10 +11,10 @@ export default defineConfig({
   css: {
     modules: {
       localsConvention: "camelCaseOnly",
-      generateScopedName: "[local]_[hash:base64:5]"
-    }
+      generateScopedName: "[local]_[hash:base64:5]",
+    },
   },
-  plugins: [react()],
+  plugins: [react(), md({ mode: ["html", "md", "mdx", "react"] })],
   root: "./src", // 源码目录
   server: {
     open: true,

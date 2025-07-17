@@ -5,14 +5,14 @@ import { Composite, Body } from "matter-js";
 
 interface Icon {
   name: string;
-  link?: string;
   svg: string;
+  id?: number;
 }
 const icons: Icon[] = [
-  { name: "phone", link: "", svg: "phone" },
-  { name: "gitlab", link: "", svg: "gitlab" },
-  { name: "gmail", link: "", svg: "gmail" },
-  { name: "tencent", link: "", svg: "tencent" },
+  { name: "phone", svg: "phone" },
+  { name: "gitlab", svg: "gitlab" },
+  { name: "gmail", svg: "gmail" },
+  { name: "tencent", svg: "tencent" },
 ];
 export default function Author() {
   let matter: Matter;
@@ -51,7 +51,7 @@ export default function Author() {
     }
     Body.applyForce(target, target.position, {
       x: Math.random() * (Math.random() > 0.5 ? 1 : -1),
-      y: -0.8,
+      y: -1,
     }); // 向上弹跳
   };
   useEffect(() => {
