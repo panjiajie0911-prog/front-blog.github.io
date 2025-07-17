@@ -56,6 +56,8 @@ export default function Author() {
   };
   useEffect(() => {
     matter = new Matter();
+    matter.createWall("left");
+    matter.createWall("right"); // 创建左右空气墙
     matter.update();
     createIcon();
     matter.addCallback(fall);

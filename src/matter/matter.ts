@@ -14,8 +14,7 @@ export default class Matter {
 
     // 创建刚体地面
     const ground = Bodies.rectangle(
-      //   0, // x轴
-      window.innerWidth / 2,
+      window.innerWidth / 2, // x轴
       window.innerHeight, // y轴
       window.innerWidth, // 宽度
       6, // 高度
@@ -56,6 +55,16 @@ export default class Matter {
     this.bodyElementMap.set(physicsEl, domEL);
 
     return physicsEl;
+  }
+  createWall(direction: string = "left") {
+    const wall = Bodies.rectangle(
+      direction === "left" ? 0 : window.innerWidth,
+      direction === "top" ? 0 : window.innerHeight,
+      direction === "left" || direction === "right" ? 6 : window.innerWidth,
+      direction === "left" || direction === "right" ? window.innerHeight : 6,
+      { isStatic: true, friction: 1, restitution: 0.2 }
+    );
+    World.add(this.world, wall);
   }
   addCallback(cb: Function) {
     this.callbacks.push(cb);
