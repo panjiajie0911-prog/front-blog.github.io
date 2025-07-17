@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+      "jsx": "react",
       "baseUrl": ".",
       "paths": {
         "@/*": ["src/*"] // 如果你使用了路径别名
