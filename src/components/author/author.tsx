@@ -13,12 +13,13 @@ const icons: Icon[] = [
 export default function Author() {
   let matter: Matter;
   const createIcon = () => {
-    icons.forEach((icon) => {
+    icons.forEach((icon, index) => {
       const physicsEl = matter.createEl(`icon-${icon.name}`);
       if (!physicsEl) {
         return;
       }
       Body.setVelocity(physicsEl, { x: 0, y: Math.random() * 10 });
+      physicsEl.position.y = index === 0 ? 0 : -10 * index;
     });
   };
   const fall = () => {
@@ -30,6 +31,8 @@ export default function Author() {
       }
       const height = _domEl.getBoundingClientRect().height;
       _domEl.style.top = body.position.y - height / 2 + "px";
+      _domEl.style.left =
+        body.position.x - _domEl.getBoundingClientRect().width / 2 + "px";
     });
   };
   useEffect(() => {
@@ -47,7 +50,7 @@ export default function Author() {
               key={icon.name}
               id={`icon-${icon.name}`}
               className={Style.icon}
-              style={{ left: `${25 + index * 25}%` }}
+              style={{ left: `${50 + 1 * index}%` }}
             ></li>
           );
         })}

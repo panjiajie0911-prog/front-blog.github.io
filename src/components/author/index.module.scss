@@ -4,10 +4,16 @@
 
   ul {
     .icon {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       background-color: #fff;
       display: inline-block;
+      transition: none;
+      transform: translateX(-50%);
+      left: 50%;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
   }
 }

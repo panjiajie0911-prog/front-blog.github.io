@@ -1,17 +1,28 @@
-import React, { useState, useEffect, cloneElement } from "react";
+import React, { useState } from "react";
 import { config, Config } from "./config";
-import * as Style from "../../assets/style/index.module.scss";
+import Style from "../../assets/style/index.module.scss";
 
 export default function Index() {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState(config);
   const [active, setActive] = useState(0);
-  const move = (direction: string) =>
-    direction === "left"
-      ? setActive(active === 0 ? 0 : active - 1)
-      : setActive(active === cards.length - 1 ? cards.length - 1 : active + 1);
-  const fetch = () => {
-    setCards(config);
+  const [content, setContent] = useState(config[active].jsx);
+  const move = (direction: string) => {
+    const newActive =
+      direction === "left"
+        ? active === 0
+          ? 0
+          : active - 1
+        : active === cards.length - 1
+        ? cards.length - 1
+        : active + 1;
+    setActive(newActive);
+    setContent(
+      config[newActive].jsx || (
+        <div className={Style.content}>{config[newActive].name}</div>
+      )
+    );
   };
+
   const dymicStyle = (index: number) => {
     const gap = Math.abs(active - index);
     if (index === active) {
@@ -23,19 +34,9 @@ export default function Index() {
     }
   };
 
-  useEffect(() => {
-    fetch();
-  }, []);
-
   return (
     <>
-      <ul className={Style.container}>
-        {cards.map((item, index) => (
-          <li key={item.id} style={dymicStyle(index)}>
-            {item.jsx ? cloneElement(item.jsx) : item.name}
-          </li>
-        ))}
-      </ul>
+      <div className={Style.container}>{content}</div>
       <div className={Style.btns}>
         <div className={Style.btn} onClick={() => move("left")}>
           上一页
