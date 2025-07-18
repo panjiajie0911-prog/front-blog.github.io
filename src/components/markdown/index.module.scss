@@ -1,0 +1,15 @@
+.ul {
+  list-style-type: none;
+
+  width: inherit;
+  height: inherit;
+  padding: 1vw 3vw;
+  box-sizing: border-box;
+  li {
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+    line-height: 1.5;
+    position: static;
+  }
+}
