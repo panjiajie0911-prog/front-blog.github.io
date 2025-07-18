@@ -1,6 +1,6 @@
 import React from "react";
 import Author from "../../components/author/author";
-
+import Markdown from "../../components/markdown/markdown";
 export interface Config {
   name: string;
   id: number;
@@ -10,5 +10,5 @@ export interface Config {
 export const config: Config[] = [
   { name: "联系", id: 2, jsx: <Author /> },
   { name: "首页", id: 1 },
-  { name: "文章", id: 5 },
+  { name: "文章", id: 5, jsx: <Markdown /> },
 ];

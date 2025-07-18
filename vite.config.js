@@ -6,7 +6,7 @@ export default defineConfig({
     alias: {
       "@": "/src", // 配置路径别名
     },
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".scss"],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".scss", ".md"],
   },
   css: {
     modules: {
@@ -14,7 +14,12 @@ export default defineConfig({
       generateScopedName: "[local]_[hash:base64:5]",
     },
   },
-  plugins: [react(), md({ mode: ["html", "md", "mdx", "react"] })],
+  plugins: [
+    react({
+      include: [/\.tsx$/, /\.ts$/, /\.jsx$/, /\.js$/, /\.md$/],
+    }),
+    md({ mode: ["html", "md", "mdx", "react"] }),
+  ],
   root: "./src", // 源码目录
   server: {
     open: true,
