@@ -25,4 +25,5 @@ export default defineConfig({
     open: true,
     port: 3000,
   },
+  assetsInclude: ["**/*.md"], // 允许访问md文件
 });
