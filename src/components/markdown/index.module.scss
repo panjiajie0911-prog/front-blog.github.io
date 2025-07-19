@@ -1,5 +1,5 @@
 .ul {
-  width: inherit;
+  width: initial;
   height: inherit;
   padding: 1vw 3vw;
   box-sizing: border-box;
@@ -7,10 +7,13 @@
 
   li {
     cursor: pointer;
-    height: fit-content;
     width: fit-content;
     line-height: 1.5;
     position: static;
+    width: initial;
+    height: initial;
+    position: static !important;
+    text-align: left !important;
   }
 }
 .modal {
@@ -24,4 +27,5 @@
   border-radius: 10px;
   border: 1px solid #ccc;
   padding: 10px;
+  background-color: #050505;
 }
