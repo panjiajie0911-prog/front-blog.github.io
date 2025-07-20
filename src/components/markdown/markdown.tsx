@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import MarkdownLoader from "react-markdown";
 import Style from "./index.module.scss";
 export default function Markdown() {
   const [text, setText] = useState("");
   const [files, setFiles] = useState<string[]>([]);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState<boolean>(false);
+  const [keyword, setKeyword] = useState<string>("");
   const init = async () => {
     const files = await fetch("../../database/md/fileNames.txt");
     if (!files) {
@@ -23,14 +24,22 @@ export default function Markdown() {
       console.error(error);
     }
   };
+  const list = useMemo(
+    () => files.filter((file: string) => file.indexOf(keyword) !== -1),
+    [keyword, files]
+  );
   useEffect(() => {
     init();
   }, []);
 
   return (
     <>
+      <input
+        className={Style.input}
+        onChange={(e) => setKeyword(e.target.value)}
+      />
       <ul className={Style.ul} onClick={() => setVisible(false)}>
-        {files.map((file) => {
+        {list.map((file) => {
           return (
             <li key={file} onClick={() => read(file)}>
               {file}

@@ -1,7 +1,7 @@
 .ul {
   width: initial;
   height: inherit;
-  padding: 1vw 3vw;
+  padding: 3vw 3vw 1vw 3vw;
   box-sizing: border-box;
   overflow-y: auto;
 
@@ -18,6 +18,23 @@
       cursor: pointer;
       animation: shining 0.5s alternate infinite;
     }
+  }
+}
+.input {
+  width: 30%;
+  height: 2vw;
+  border-radius: 20px;
+  position: fixed;
+  top: 1vw;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  text-align: center;
+  transition: width 1s;
+  &:focus-visible,
+  &:hover {
+    outline: none;
+    width: 40%;
   }
 }
 .modal {
