@@ -1,21 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Matter from "../../matter/matter";
 import Style from "./index.module.scss";
 import { Composite, Body } from "matter-js";
-
+let matter: Matter;
 interface Icon {
   name: string;
+  content: string;
   svg: string;
   id?: number;
 }
 const icons: Icon[] = [
-  { name: "phone", svg: "phone" },
-  { name: "gitlab", svg: "gitlab" },
-  { name: "gmail", svg: "gmail" },
-  { name: "tencent", svg: "tencent" },
+  { name: "phone", svg: "phone", content: "178 8249 4850" },
+  {
+    name: "gitlab",
+    svg: "gitlab",
+    content: "https://gitlab.com/panjiajie0911-group",
+  },
+  { name: "gmail", svg: "gmail", content: "panjiajie0911@gmail.com" },
+  { name: "tencent", svg: "tencent", content: "251907882" },
 ];
 export default function Author() {
-  let matter: Matter;
+  const [icon, setIcon] = useState<Icon>({});
+
   const createIcon = () => {
     icons.forEach((icon, index) => {
       const physicsEl = matter.createEl(`icon-${icon.name}`);
@@ -53,6 +59,7 @@ export default function Author() {
       x: Math.random() * (Math.random() > 0.5 ? 1 : -1),
       y: -1,
     }); // 向上弹跳
+    setIcon(icon); // 显示内容
   };
   useEffect(() => {
     matter = new Matter();
@@ -64,6 +71,7 @@ export default function Author() {
   }, []);
   return (
     <div className={Style.author}>
+      <div className={Style.content}>{icon.content}</div>
       <ul>
         {icons.map((icon, index) => {
           return (

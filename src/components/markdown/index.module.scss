@@ -14,6 +14,10 @@
     height: initial;
     position: static !important;
     text-align: left !important;
+    &:hover {
+      cursor: pointer;
+      animation: shining 0.5s alternate infinite;
+    }
   }
 }
 .modal {
@@ -28,4 +32,14 @@
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #050505;
+}
+@keyframes shining {
+  from {
+    text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 10px lightblue,
+      0 0 40px skyblue, 0 0 50px skyblue, 0 0 60px skyblue;
+  }
+  to {
+    text-shadow: 0 0 5px lightblue, 0 0 10px lightblue, 0 0 15px lightblue,
+      0 0 20px skyblue, 0 0 25px skyblue, 0 0 10px skyblue;
+  }
 }

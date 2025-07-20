@@ -8,7 +8,8 @@ export interface Config {
 }
 
 export const config: Config[] = [
-  { name: "文章", id: 5, jsx: <Markdown /> },
   { name: "联系", id: 2, jsx: <Author /> },
-  { name: "首页", id: 1 },
+  { name: "文章", id: 5, jsx: <Markdown /> },
+
+  // { name: "首页", id: 1 },
 ];

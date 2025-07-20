@@ -1,11 +1,11 @@
 .author {
   width: 100%;
   height: 100%;
-
+  $size: 10vw;
   ul {
     .icon {
-      width: 150px;
-      height: 150px;
+      width: $size;
+      height: $size;
       background-color: #fff;
       display: inline-block;
       transition: none;
@@ -31,5 +31,26 @@
     .tencent {
       mask-image: url("../../assets/svg/tencent.svg");
     }
+  }
+  .content {
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    animation: shining 0.5s alternate infinite;
+  }
+}
+@keyframes shining {
+  from {
+    text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue,
+      0 0 40px skyblue, 0 0 50px skyblue, 0 0 60px skyblue;
+  }
+  to {
+    text-shadow: 0 0 5px lightblue, 0 0 10px lightblue, 0 0 15px lightblue,
+      0 0 20px skyblue, 0 0 25px skyblue, 0 0 30px skyblue;
   }
 }
