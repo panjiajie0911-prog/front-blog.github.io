@@ -9,8 +9,7 @@ export interface Config {
 }
 
 export const config: Config[] = [
+  { name: "首页", id: 1, jsx: <Guide /> },
   { name: "文章", id: 5, jsx: <Markdown /> },
   { name: "联系", id: 2, jsx: <Author /> },
-
-  { name: "首页", id: 1, jsx: <Guide /> },
 ];
