@@ -2,6 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import md from "vite-plugin-markdown";
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: "index.html",
+      },
+    },
+  },
   resolve: {
     alias: {
       "@": "/src", // 配置路径别名
@@ -20,7 +27,7 @@ export default defineConfig({
     }),
     md({ mode: ["html", "md", "mdx", "react"] }),
   ],
-  root: "./src", // 源码目录
+
   server: {
     open: true,
     port: 3000,
