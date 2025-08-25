@@ -2,7 +2,7 @@
  * @Author: 潘家杰 panjiajie@chexiao.co
  * @Date: 2025-07-18 15:10:50
  * @LastEditors: 潘家杰 panjiajie@chexiao.co
- * @LastEditTime: 2025-08-25 16:57:32
+ * @LastEditTime: 2025-08-25 17:22:38
  * @FilePath: \blog-front\src\components\markdown\markdown.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -16,7 +16,6 @@ export default function Markdown() {
   const [keyword, setKeyword] = useState<string>("");
   const init = async () => {
     const files = await fetch("../../database/md/fileNames.txt");
-
     if (!files) {
       return;
     }
